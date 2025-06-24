@@ -26,7 +26,7 @@ def river(self, game_state):
 
     language='Python', theme='vscodeLightStyle')
         #ui.button('Save')
-        editor.classes('h-[40vh]')
+        editor.classes('h-[50vh]')
 
 ui.run(favicon='🃏', title='Home')
 
