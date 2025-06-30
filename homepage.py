@@ -1,6 +1,7 @@
 from nicegui import ui
 
 ui.query('button').classes('rounded-lg')
+ui.query('body').style(f'background-color: {'SeaGreen'}')
 
 def icon_select(icon):
     avatar.icon = icon
@@ -11,17 +12,14 @@ def bg_colour_select(colour):
 def main_colour_select(colour):
     avatar.style(f'color: {colour} !important')
 
-
-
 ui.html('<span style="color:white"><strong>Design Your Joker</strong></span>').classes('text-2xl')
 
 with ui.row().classes('items-stretch justify-center w-full'):
     with ui.card().classes('rounded-lg'):
         ui.label("Avatar")
-        #avatar = ui.avatar('sym_s_robot_2', rounded=True, size='200px', color='grey', text_color="black")
 
         with ui.column().classes('items-stretch justify-center w-full'):
-            avatar = ui.avatar('sym_s_robot_2', rounded=True, size='200px', color='grey', text_color="black").classes('rounded-lg')
+            avatar = ui.avatar('sym_s_robot_2', rounded=True, size='200px', color='gray', text_color="black").classes('rounded-lg')
 
             with ui.row().classes('items-stretch justify-center w-full'):
                 with ui.dropdown_button(icon='face'):
@@ -53,6 +51,7 @@ with ui.row().classes('items-stretch justify-center w-full'):
 
 def postflop(self, game_state):
     pass
+    print('test')
 
 def turn(self, game_state):
     pass
@@ -73,7 +72,5 @@ with ui.row().classes('items-stretch w-full justify-center'):
     ui.button("♦️ Warm-up 🤖", color='zinc-800').tooltip("Test out your Joker against a an open source poker bot").style('color:white')
     ui.button("♠️ Versus ♣️", color='Crimson').tooltip("Watch your Joker play a game live against other Jokers made by other players").style('color:white')
     ui.button("📊 Rankings ♥️", color="zinc-800").tooltip("Have your Joker play 100 games against others to guage its overall performance").style('color:white')
-      
-            
-ui.query('body').style(f'background-color: {'SeaGreen'}')
+
 ui.run(favicon='🃏', title='Home', dark=None)
