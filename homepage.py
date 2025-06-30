@@ -51,7 +51,6 @@ with ui.row().classes('items-stretch justify-center w-full'):
 
 def postflop(self, game_state):
     pass
-    print('test')
 
 def turn(self, game_state):
     pass
