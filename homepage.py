@@ -36,8 +36,8 @@ with ui.row().classes('items-stretch justify-center w-full'):
                     with ui.item('Background', on_click=lambda *args: None):
                         ui.color_picker(on_pick=lambda e: bg_colour_select(e.color))
         
-        ui.input(label='Username', placeholder='Jevilish Jokerbot', validation={'Character Limit Exceeded': lambda value: len(value) < 15})
-        result = ui.label()
+            ui.input(label='Username', placeholder='Jevilish Jokerbot', validation={'Character Limit Exceeded': lambda value: len(value) < 20})
+            result = ui.label()
 
         with ui.row().classes('mt-auto justify-end w-full'):
             ui.button(icon='save')
