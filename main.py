@@ -3,22 +3,25 @@ from fastapi import Request
 from starlette.responses import RedirectResponse
 
 from nicegui import app, ui
-from pages import homepage
-from accounts import authentication
+
+import HomePage
+from accounts import authentication, database
+
+
+database.init()
 
 @ui.page('/')
 async def landing_page(request: Request) -> Optional[RedirectResponse]:
 
-    user_data = app.storage.user.get('user_data', None)
+    user_id = app.storage.user.get('user_id', 0)
 
-    if user_data:
-        for _ in range(49):
-            ui.navigate.history.push('http://localhost:8080/')
-        
-        homepage.create()
+    if user_id:
 
-        ui.button('Logout', on_click=authentication.logout)
-        ui.label(f'Welcome {user_data.get("userinfo", {}).get("name", "")}!')
+        for _ in range(100):
+            ui.navigate.history.push('/')
+
+        HomePage.create(user_id)
+
         return None
     
     else:
@@ -26,4 +29,4 @@ async def landing_page(request: Request) -> Optional[RedirectResponse]:
         return await authentication.get_user_data(request)
 
 
-ui.run(host='localhost', favicon='🃏', title='Home', dark=None, storage_secret='im the finder dodge girl')
+ui.run(host='127.0.0.1', favicon='🃏', title='Home', dark=None, storage_secret='im the finder dodge girl')

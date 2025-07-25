@@ -6,6 +6,8 @@ from starlette.responses import RedirectResponse
 
 from nicegui import app, ui
 
+from accounts import database
+
 GOOGLE_CLIENT_ID = '...'
 GOOGLE_CLIENT_SECRET = '...'
 
@@ -27,15 +29,14 @@ async def google_oauth(request: Request) -> RedirectResponse:
         print(f'OAuth error: {e}')
         return RedirectResponse('/')  # or return an error page/message
     
-    app.storage.user['user_data'] = user_data
+    app.storage.user['user_id'] = database.sign_in(user_data)
 
     return RedirectResponse('/')
     
-
 def logout() -> None:
-    del app.storage.user['user_data']
+    app.storage.user['user_id'] = 0
     ui.navigate.to('/')
 
-async def get_user_data(request: Request):
+def get_user_data(request: Request):
     url = request.url_for('google_oauth')
-    return await oauth.google.authorize_redirect(request, url) # type: ignore
+    return oauth.google.authorize_redirect(request, url) # type: ignore
