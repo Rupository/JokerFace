@@ -8,8 +8,8 @@ from nicegui import app, ui
 
 from accounts import database
 
-GOOGLE_CLIENT_ID = '...'
-GOOGLE_CLIENT_SECRET = '...'
+GOOGLE_CLIENT_ID = '<KEYGEN>'
+GOOGLE_CLIENT_SECRET = '<KEYGEN>'
 
 oauth = OAuth()
 oauth.register(
