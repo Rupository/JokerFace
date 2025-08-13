@@ -425,39 +425,8 @@ def play_round(bot1_wins, bot2_wins, bot1_folds, bot2_folds, ties):
     print (f"Community cards: {Bot1.community_cards}")
     print (f"Bot 2 cards: {Bot2.botcards}")
 '''
-
-
-
     return (bot1_wins, bot2_wins, bot1_folds, bot2_folds, ties)
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    return [bot1_wins, bot2_wins, bot1_folds, bot2_folds, ties]
 
 
         
@@ -471,5 +440,6 @@ while current_round != num_rounds:
 print (f"bot1_wins = {bot1_wins}, bot2_wins = {bot2_wins}")
 print (f"bot1_folds = {bot1_folds}, bot2_folds = {bot2_folds}")
 print (f"ties = {ties}")
+
 
 
